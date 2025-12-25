@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+</head>
+
+
+<body>
+    <%- include('partials/nav') %>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col">
+                <a href="/albums">< Retour</a>
+                <h1 class="mb-4"><%= album.title %></h1>
+            </div>
+        </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ajouter une image</h5>
+                    <form class="form-inline" action="/albums/<%= album._id %>" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="image" class="form-control-filed"><br>
+                        <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
+                    </form>
+                    <% if (errors && errors.length > 0) { %>
+                        <div class="alert alert-danger mt-4 mb-2" role="alert">
+                            <%= errors[0] %>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+
+        <% album.images.forEach( (element, index) => { %>
+        <div class="col">
+            <div class="card">
+                <img src="/uploads/<%=album._id%>/<%= element%>" alt="<%=element%>" class="card-img-top">
+                <div class="card-body">
+                    <h5><%=element%></h5>
+                    <a href="/albums/<%=album._id%>/delete/<%= index%>">Supprimer</a>
+                </div>
+            </div>
+        </div>            
+        <% }); %>
+        
+    </div>
+</div>
+    <%- include('partials/scripts') %>
+
+</body>
+</html>

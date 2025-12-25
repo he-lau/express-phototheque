@@ -1,0 +1,21 @@
+{
+  "name": "phototheque",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-fileupload": "^1.5.2",
+    "express-session": "^1.18.2",
+    "mongoose": "^9.0.0",
+    "nodemon": "^3.1.11",
+    "rimraf": "^6.1.2"
+  }
+}
